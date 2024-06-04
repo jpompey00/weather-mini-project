@@ -1,0 +1,21 @@
+#forecastHead {
+  
+    width: 20px !important;
+   
+}
+#temperatureHead{
+   
+    width: 20px !important;
+}
+
+#windsHead{
+width: 100px !important;
+}
+
+#shortForecastHead{
+width: 200px !important;
+}
+
+#imageHead{
+width: 100px !important;
+}
