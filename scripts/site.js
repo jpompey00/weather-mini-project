@@ -62,34 +62,24 @@ function forecastArrayApiCall(url) {
         .then(response => response.json())
         .then(data => {
             //returns array
-            
+
             let periodsArray = data.properties.periods;
-            createListing(periodsArray);
-            //name
-            //temperature
-            //temperatureUnits
-            //windDirection
-            //windSpeed
-            //Short forecast
-            //icon
+
+            for (let i of periodsArray) {
+                outputTable.appendChild(createTableData(i));
+            }
+
         })
 }
 
-
-function createListing(forecastArray){
-    for(let i of forecastArray){
-        outputTable.appendChild(createCol(i));
-    }
-}
-
-function createCol(forecastObj){
+function createTableData(forecastObj) {
     //column becomes red when thunderstorms
-    
+
     let tr = document.createElement("tr");
-    if(forecastObj.shortForecast.includes("Thunderstorms")){
+    if (forecastObj.shortForecast.includes("Thunderstorms")) {
         tr.classList.add("table-danger")
     }
-    
+
     let forecast = document.createElement("td");
     let temperature = document.createElement("td");
     let winds = document.createElement("td");
@@ -117,7 +107,7 @@ function createCol(forecastObj){
     image.appendChild(forecastIcon);
     tr.appendChild(image);
 
-    
+
 
     return tr;
 }
